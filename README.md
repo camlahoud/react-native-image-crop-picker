@@ -1,5 +1,6 @@
 # react-native-image-crop-picker
 iOS/Android image picker with support for camera, video compression, multiple images and cropping
+A fork from [ivpusic](https://github.com/ivpusic/react-native-image-crop-picker)'s work to add an option to specify the type to select (image/video)
 
 ## Result
 
@@ -65,6 +66,7 @@ ImagePicker.clean().then(() => {
 | cropping | bool (default false)      | Enable or disable cropping |
 | width          | number | Width of result image when used with `cropping` option |
 | height      | number      | Height of result image when used with `cropping` option |
+| type      | string      | Type of selection: image or video |
 | multiple | bool (default false) | Enable or disable multiple image selection |
 | includeBase64 | bool (default false) | Enable or disable returning base64 data with image |
 | cropperTintColor (android only) | string (default `"#424242"`) | When cropping image, determines the color of Toolbar and other UX elements.  Uses UCrop's `setToolbarColor, setActiveWidgetColor, and setStatusBarColor` with color specified. |
