@@ -17,6 +17,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
 import android.util.Base64;
 import android.webkit.MimeTypeMap;
+import android.util.Log;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Promise;
@@ -75,7 +76,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
     private String cropperTintColor = DEFAULT_TINT;
     
     //Type selection
-    private String type = "";
+    private String type = new String("");
 
     //Light Blue 500
     private final String DEFAULT_WIDGET_COLOR = "#03A9F4";
@@ -306,9 +307,9 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
             if (cropping) {
                 galleryIntent.setType("image/*");
             } else {
-              if (type=="photo") {
+              if (type.equals("photo")) {
                 galleryIntent.setType("image/*");
-              } else if (type=="video") {
+              } else if (type.equals("video")) {
                 galleryIntent.setType("video/*");
               } else {
                 galleryIntent.setType("image/*,video/*");

@@ -215,9 +215,9 @@ RCT_EXPORT_METHOD(openPicker:(NSDictionary *)options
             if ([[self.options objectForKey:@"cropping"] boolValue]) {
                 imagePickerController.mediaType = QBImagePickerMediaTypeImage;
             } else {
-              if ([self.options objectForKey:@"type"] == "photo") {
+              if ([[self.options objectForKey:@"type"] isEqualToString:@"photo"]) {
                 imagePickerController.mediaType = QBImagePickerMediaTypeImage;
-              } else if ([self.options objectForKey:@"type"] == "video") {
+              } else if ([[self.options objectForKey:@"type"] isEqualToString:@"video"]) {
                 imagePickerController.mediaType = QBImagePickerMediaTypeVideo;
               } else {
                 imagePickerController.mediaType = QBImagePickerMediaTypeAny;
