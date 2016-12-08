@@ -75,7 +75,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
     private String cropperTintColor = DEFAULT_TINT;
     
     //Type selection
-    private String type = '';
+    private String type = "";
 
     //Light Blue 500
     private final String DEFAULT_WIDGET_COLOR = "#03A9F4";
@@ -306,9 +306,9 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
             if (cropping) {
                 galleryIntent.setType("image/*");
             } else {
-              if (type=='photo') {
+              if (type=="photo") {
                 galleryIntent.setType("image/*");
-              } else if (type=='video') {
+              } else if (type=="video") {
                 galleryIntent.setType("video/*");
               } else {
                 galleryIntent.setType("image/*,video/*");

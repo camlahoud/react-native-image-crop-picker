@@ -43,7 +43,8 @@ RCT_EXPORT_MODULE();
                                 @"maxFiles": @5,
                                 @"width": @200,
                                 @"height": @200,
-                                @"useFrontCamera": @NO
+                                @"useFrontCamera": @NO,
+                                @"type": @""
                                 };
     }
 
@@ -214,7 +215,13 @@ RCT_EXPORT_METHOD(openPicker:(NSDictionary *)options
             if ([[self.options objectForKey:@"cropping"] boolValue]) {
                 imagePickerController.mediaType = QBImagePickerMediaTypeImage;
             } else {
+              if ([self.options objectForKey:@"type"] == "photo") {
+                imagePickerController.mediaType = QBImagePickerMediaTypeImage;
+              } else if ([self.options objectForKey:@"type"] == "video") {
+                imagePickerController.mediaType = QBImagePickerMediaTypeVideo;
+              } else {
                 imagePickerController.mediaType = QBImagePickerMediaTypeAny;
+              }
             }
 
             [[self getRootVC] presentViewController:imagePickerController animated:YES completion:nil];
