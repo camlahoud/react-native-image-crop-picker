@@ -73,6 +73,9 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
     //Grey 800
     private final String DEFAULT_TINT = "#424242";
     private String cropperTintColor = DEFAULT_TINT;
+    
+    //Type selection
+    private String type = '';
 
     //Light Blue 500
     private final String DEFAULT_WIDGET_COLOR = "#03A9F4";
@@ -107,6 +110,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         height = options.hasKey("height") ? options.getInt("height") : height;
         cropping = options.hasKey("cropping") ? options.getBoolean("cropping") : cropping;
         cropperTintColor = options.hasKey("cropperTintColor") ? options.getString("cropperTintColor") : cropperTintColor;
+        type = options.hasKey("type") ? options.getString("type") : type;
 
     }
 
@@ -302,7 +306,13 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
             if (cropping) {
                 galleryIntent.setType("image/*");
             } else {
+              if (type=='photo') {
+                galleryIntent.setType("image/*");
+              } else if (type=='video') {
+                galleryIntent.setType("video/*");
+              } else {
                 galleryIntent.setType("image/*,video/*");
+              }
             }
 
             galleryIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, multiple);
